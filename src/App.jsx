@@ -15,26 +15,33 @@ import UploadPreview from './pages/UploadPreview';
 // Import i18n configuration
 import './i18n';
 
+// Import Vercel Analytics
+import { Analytics } from '@vercel/analytics/react';
+
 function App() {
   return (
     <Router>
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/ResetPassword' element={<ResetPassword />} />
-        <Route path='/forgot-password' element={<ForgotPassword />} />
-        <Route path='/signup' element={<Signup />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/DiseaseManagement' element={<DiseaseManagement />} />
-        <Route path='/CameraCapture' element={<CameraCapture />} />
-        <Route path='/results' element={<Results />} />
-        <Route path='/upload' element={<UploadPreview />} />
+      <>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/ResetPassword' element={<ResetPassword />} />
+          <Route path='/forgot-password' element={<ForgotPassword />} />
+          <Route path='/signup' element={<Signup />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/DiseaseManagement' element={<DiseaseManagement />} />
+          <Route path='/CameraCapture' element={<CameraCapture />} />
+          <Route path='/results' element={<Results />} />
+          <Route path='/upload' element={<UploadPreview />} />
 
+          {/* CropPrediction is now public */}
+          <Route path='/CropPrediction' element={<CropPrediction />} />
 
-        {/* CropPrediction is now public */}
-        <Route path='/CropPrediction' element={<CropPrediction />} />
+          {/* other routes */}
+        </Routes>
 
-        {/* other routes */}
-      </Routes>
+        {/* Vercel Analytics component */}
+        <Analytics />
+      </>
     </Router>
   );
 }
