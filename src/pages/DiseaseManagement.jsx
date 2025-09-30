@@ -5,28 +5,28 @@ import { useTranslation } from 'react-i18next';
 
 // Import your plant images
 import apple from '../assets/apple.avif';
-import cassava from '../assets/cassava.jpg';
-import cherry from '../assets/cherry.jpg';
-import chili from '../assets/chili.jpg';
-import coffee from '../assets/coffee.jpg';
+import cassava from '../assets/Cassava.jpg';
+import cherry from '../assets/Cherry.jpg';
+import chili from '../assets/Chili.jpg';
+import coffee from '../assets/Coffee.jpg';
 import corn from '../assets/corn.jpeg';
-import cucumber from '../assets/cucumber.jpg';
-import guava from '../assets/gauva.jpg';
+import cucumber from '../assets/Cucumber.jpg';
+import guava from '../assets/Gauva.jpg';
 import grape from '../assets/grape.jpeg';
-import jamun from '../assets/jamun.jpg';
-import lemon from '../assets/lemon.jpg';
-import mango from '../assets/mango.jpg';
+import jamun from '../assets/Jamun.jpg';
+import lemon from '../assets/Lemon.jpg';
+import mango from '../assets/Mango.jpg';
 import peach from '../assets/peach.jpeg';
 import pepperbell from '../assets/pepperbell.jpeg';
-import pomegranate from '../assets/pomegranate.jpg';
-import potato from '../assets/potato.jpg';
-import rice from '../assets/rice.jpg';
-import soybean from '../assets/soybean.jpg';
-import strawberry from '../assets/strawberry.jpg';
-import sugarcane from '../assets/sugarcane.jpg';
-import tea from '../assets/tea.jpg';
+import pomegranate from '../assets/Pomegranate.jpg';
+import potato from '../assets/Potato.jpg';
+import rice from '../assets/Rice.jpg';
+import soybean from '../assets/Soybean.jpg';
+import strawberry from '../assets/Strawberry.jpg';
+import sugarcane from '../assets/Sugarcane.jpg';
+import tea from '../assets/Tea.jpg';
 import tomato from '../assets/tomato.jpeg';
-import wheat from '../assets/wheat.jpg';
+import wheat from '../assets/Wheat.jpg';
 
 const DiseaseManagement = () => {
   const navigate = useNavigate();
