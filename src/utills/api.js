@@ -125,10 +125,11 @@ export const getCropInfo = async (cropName) => {
 // -------------------- Disease Prediction APIs --------------------
 
 // Predict disease (with file upload)
+// ✅ Updated route to match Postman working URL
 export const predictDisease = async (formData) => {
   try {
     const response = await axios.post(
-      `${BASE_URL}/prediction-disease/predictdisease/`,
+      `${BASE_URL}/prediction-diseasae/predictdisease/`,
       formData,
       { headers: { 'Content-Type': 'multipart/form-data' } }
     );
