@@ -54,14 +54,20 @@ const CropPrediction = () => {
       setPredictedCrop(predicted_crop);
       localStorage.setItem('predictedCrop', predicted_crop);
       setShowMoreInfo(true);
-
-      // Fetch crop info immediately after prediction
-      const cropData = await getCropInfo(predicted_crop);
-      if (cropData && cropData.crop_info) {
-        setCropInfo(cropData.crop_info);
-      }
     } catch (error) {
       console.error('Error predicting crop:', error);
+    }
+  };
+
+  const handleGetMoreInfo = async () => {
+    const storedCrop = localStorage.getItem('predictedCrop');
+    try {
+      const data = await getCropInfo(storedCrop);
+      if (data && data.crop_info) {
+        setCropInfo(data.crop_info);
+      }
+    } catch (error) {
+      console.error('Error fetching crop info:', error);
     }
   };
 
@@ -117,7 +123,7 @@ const CropPrediction = () => {
 
           {/* Show prediction result */}
           {showMoreInfo && (
-            <div className="mt-6 bg-white p-6 rounded-lg shadow-md max-w-3xl w-full">
+            <div className="mt-6 bg-white p-6 rounded-lg shadow-md max-w-4xl w-full">
               <h2 className="text-2xl font-bold text-green-800 mb-4 text-center">
                 {t("predictionResult")}
               </h2>
@@ -126,7 +132,17 @@ const CropPrediction = () => {
                 <span className="text-green-600">{predictedCrop}</span>
               </p>
 
-              {/* Show crop information below */}
+              {/* Get More Info Button */}
+              <div className="text-center">
+                <button
+                  onClick={handleGetMoreInfo}
+                  className="mt-4 px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+                >
+                  {t("getMoreInfo")}
+                </button>
+              </div>
+
+              {/* Show crop info if available */}
               {cropInfo && (
                 <div className="mt-6 bg-white bg-opacity-90 p-6 rounded-lg shadow-lg w-full">
                   <h2 className="text-2xl font-bold text-green-800 mb-4 text-center">
