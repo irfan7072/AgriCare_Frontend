@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { predictDisease } from '../utills/api';
 import Sidebar from './Sidebar';
 import { useTranslation } from 'react-i18next';
@@ -9,6 +9,7 @@ const UploadPreview = () => {
   const canvasRef = useRef(null);
   const fileInputRef = useRef(null);
   const navigate = useNavigate();
+  const location = useLocation();
   const { t } = useTranslation();
 
   const [selectedFile, setSelectedFile] = useState(null);
@@ -25,12 +26,20 @@ const UploadPreview = () => {
     navigate("/login");
   };
 
-  // 🚨 BYPASS AUTH CHECK (Option C)
+  // ✅ Authentication Check
   useEffect(() => {
-    // Always allow access (DEV ONLY, remove before production)
-    setIsAuth(true);
-    setIsLoading(false);
-  }, []);
+    const checkAuth = () => {
+      const token = localStorage.getItem('authToken');
+      if (token) {
+        setIsAuth(true);
+      } else {
+        navigate('/login', { replace: true, state: { from: location } });
+      }
+      setIsLoading(false);
+    };
+
+    checkAuth();
+  }, [navigate, location]);
 
   // Start/stop camera
   useEffect(() => {
@@ -128,8 +137,8 @@ const UploadPreview = () => {
       setIsProcessing(false);
     }
   };
-
-  // ✅ Render a loading message while "checking auth"
+  
+  // ✅ Render a loading message while checking auth
   if (isLoading) {
     return (
       <div className="flex justify-center items-center h-screen text-2xl font-semibold">
@@ -138,7 +147,7 @@ const UploadPreview = () => {
     );
   }
 
-  // ✅ Always renders now because we bypassed auth
+  // ✅ Only render if authenticated
   if (isAuth) {
     return (
       <div className="flex h-screen overflow-hidden bg-green-100">
@@ -249,8 +258,13 @@ const UploadPreview = () => {
       </div>
     );
   }
-
+  
   return null;
 };
 
 export default UploadPreview;
+
+
+
+
+
