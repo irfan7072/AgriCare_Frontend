@@ -123,7 +123,7 @@ const CropPrediction = () => {
 
           {/* Show prediction result */}
           {showMoreInfo && (
-            <div className="mt-6 bg-white p-6 rounded-lg shadow-md max-w-4xl w-full">
+            <div className="mt-6 bg-white p-6 rounded-lg shadow-md max-w-5xl w-full">
               <h2 className="text-2xl font-bold text-green-800 mb-4 text-center">
                 {t("predictionResult")}
               </h2>
