@@ -9,17 +9,17 @@ import {
   LogIn,
   LogOut,
 } from "lucide-react";
-import { useTranslation } from "react-i18next"; // Single import statement
+import { useTranslation } from "react-i18next";
 
 const Sidebar = ({ onSignOut }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLangModalOpen, setIsLangModalOpen] = useState(false);
+  const [isSignOutModalOpen, setIsSignOutModalOpen] = useState(false);
 
-  const { t, i18n } = useTranslation(); // Correct usage
+  const { t, i18n } = useTranslation();
 
-  // Check login state on mount
   useEffect(() => {
     const token = localStorage.getItem("authToken");
     if (token) {
@@ -69,6 +69,7 @@ const Sidebar = ({ onSignOut }) => {
   const handleSignOut = () => {
     localStorage.removeItem("authToken");
     setIsLoggedIn(false);
+    setIsSignOutModalOpen(false);
     if (onSignOut) {
       onSignOut();
     }
@@ -90,7 +91,6 @@ const Sidebar = ({ onSignOut }) => {
       <aside className="group w-20 hover:w-64 bg-green-700 text-white flex flex-col py-8 px-4 fixed h-full transition-all duration-700 z-50">
         <h1 className="text-xl font-bold mb-12 text-center">Agri Care</h1>
 
-        {/* Navigation Links */}
         <nav className="flex flex-col space-y-6 text-lg flex-1">
           <button
             onClick={scrollToTop}
@@ -133,9 +133,7 @@ const Sidebar = ({ onSignOut }) => {
           </button>
         </nav>
 
-        {/* Bottom Section */}
         <div className="mt-auto flex flex-col space-y-6">
-          {/* Language Popup Trigger */}
           <button
             className="flex items-center gap-3 cursor-pointer hover:text-green-200"
             onClick={() => setIsLangModalOpen(true)}
@@ -146,11 +144,10 @@ const Sidebar = ({ onSignOut }) => {
             <span className={labelClasses}>{t("language")}</span>
           </button>
 
-          {/* Sign In / Sign Out */}
           {isLoggedIn ? (
             <button
               className="flex items-center gap-3 cursor-pointer hover:text-green-200"
-              onClick={handleSignOut}
+              onClick={() => setIsSignOutModalOpen(true)}
             >
               <div className="w-6 flex justify-center">
                 <LogOut size={20} />
@@ -210,6 +207,32 @@ const Sidebar = ({ onSignOut }) => {
             >
               {t("close")}
             </button>
+          </div>
+        </div>
+      )}
+
+      {/* Sign Out Confirmation Modal */}
+      {isSignOutModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[999]">
+          <div className="bg-white rounded-xl p-8 w-80 shadow-lg text-center">
+            <h2 className="text-xl font-bold text-green-700 mb-6">
+              {t("confirmSignOut")}
+            </h2>
+            <p className="mb-6">{t("areYouSureLogout")}</p>
+            <div className="flex justify-around">
+              <button
+                onClick={handleSignOut}
+                className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700"
+              >
+                {t("yes")}
+              </button>
+              <button
+                onClick={() => setIsSignOutModalOpen(false)}
+                className="px-4 py-2 bg-gray-400 text-white rounded-lg hover:bg-gray-500"
+              >
+                {t("no")}
+              </button>
+            </div>
           </div>
         </div>
       )}
