@@ -7,7 +7,7 @@ const BASE_URL = 'https://agricare-b-2.onrender.com';
 // Login function
 export async function loginUser(email, password) {
   try {
-    const response = await fetch(`${BASE_URL}/login`, {
+    const response = await fetch(`${BASE_URL}/api/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password }),
@@ -27,7 +27,7 @@ export async function loginUser(email, password) {
 // Signup function
 export async function signupUser(name, username, email, password) {
   try {
-    const response = await fetch(`${BASE_URL}/register`, {
+    const response = await fetch(`${BASE_URL}/api/register`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, username, email, password }),
@@ -47,7 +47,7 @@ export async function signupUser(name, username, email, password) {
 // Forgot Password - send OTP
 export const forgotPassword = async (email) => {
   try {
-    const response = await fetch(`${BASE_URL}/forgot-password/`, {
+    const response = await fetch(`${BASE_URL}/api/forgot-password/`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email }),
@@ -66,7 +66,7 @@ export const forgotPassword = async (email) => {
 // Reset password
 export const resetPassword = async (email, otp, new_password) => {
   try {
-    const response = await fetch(`${BASE_URL}/reset-password/`, {
+    const response = await fetch(`${BASE_URL}/api/reset-password/`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, otp, new_password }),
