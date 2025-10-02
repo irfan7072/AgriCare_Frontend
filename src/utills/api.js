@@ -1,7 +1,7 @@
 import axios from "axios";
 
 
-const BASE_URL = 'https://agricare-b-1.onrender.com/';
+const BASE_URL = 'https://agricare-b-2.onrender.com';
 // Login function
 export async function loginUser(email, password) {
   try {
