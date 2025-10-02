@@ -20,6 +20,12 @@ const resources = {
       "signin": "Sign In",
       "selectLanguage": "Select Language",
       "close": "Close",
+
+      // Confirm Sign Out
+      "confirmSignOut": "Confirm Sign Out",
+      "areYouSureLogout": "Are you sure you want to log out?",
+      "yes": "Yes",
+      "no": "No",
       
       // Home Page
       "heroTitle": "AgriCare",
@@ -163,6 +169,12 @@ const resources = {
       "signin": "साइन इन",
       "selectLanguage": "भाषा चुनें",
       "close": "बंद करें",
+
+      // Confirm Sign Out
+      "confirmSignOut": "साइन आउट की पुष्टि करें",
+      "areYouSureLogout": "क्या आप वाकई लॉग आउट करना चाहते हैं?",
+      "yes": "हाँ",
+      "no": "नहीं",
       
       // Home Page
       "heroTitle": "एग्रीकेयर",
@@ -306,6 +318,12 @@ const resources = {
       "signin": "உள்நுழைக",
       "selectLanguage": "மொழியைத் தேர்ந்தெடுக்கவும்",
       "close": "மூடு",
+
+      // Confirm Sign Out
+      "confirmSignOut": "வெளியேறுவதை உறுதிப்படுத்தவும்",
+      "areYouSureLogout": "நீங்கள் உண்மையில் வெளியேற விரும்புகிறீர்களா?",
+      "yes": "ஆம்",
+      "no": "இல்லை",
       
       // Home Page
       "heroTitle": "அக்ரிகேர்",
@@ -449,6 +467,12 @@ const resources = {
       "signin": "సైన్ ఇన్",
       "selectLanguage": "భాషను ఎంచుకోండి",
       "close": "మూసివేయి",
+
+      // Confirm Sign Out
+      "confirmSignOut": "సైన్ అవుట్ నిర్ధారించండి",
+      "areYouSureLogout": "మీరు నిజంగా లాగ్ అవుట్ కావాలనుకుంటున్నారా?",
+      "yes": "అవును",
+      "no": "కాదు",
       
       // Home Page
       "heroTitle": "అగ్రికేర్",
