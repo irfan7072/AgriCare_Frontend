@@ -23,7 +23,7 @@ const resources = {
       
       // Home Page
       "heroTitle": "AgriCare",
-      "heroSubtitle": "A farmers friend",
+      "heroSubtitle": "Empowering farmers with smart crop suggestions and leaf disease insights for better harvests.",
       "featuresTitle": "Our Features",
       "cropPredictionTitle": "Crop Prediction",
       "cropPredictionDesc": "Get accurate crop predictions based on soil data and weather conditions.",
