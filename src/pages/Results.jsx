@@ -47,6 +47,7 @@ const Results = () => {
       {/* Main Content */}
       <main className="ml-20 group-hover:ml-64 flex-1 overflow-y-auto transition-all duration-300 px-6 py-8 bg-green-100">
         <div className="flex flex-col items-center">
+          {/* Prediction Result Box */}
           <div className="bg-white bg-opacity-80 p-6 rounded-lg shadow-md max-w-md w-full">
             <h1 className="text-3xl font-bold text-green-800 mb-4 text-center">
               {t("predictionResult")}
@@ -81,17 +82,19 @@ const Results = () => {
                 </button>
               </div>
             ) : (
-              <p className="text-red-500 text-center">{t("noPredictionAvailable")}</p>
+              <p className="text-red-500 text-center">
+                {t("noPredictionAvailable")}
+              </p>
             )}
           </div>
 
-          {/* Display info below results if available */}
+          {/* More Information Section */}
           {infoData && (
-            <div className="mt-6 bg-white bg-opacity-90 p-6 rounded-lg shadow-lg max-w-3xl w-full">
+            <div className="mt-6 bg-white bg-opacity-90 p-6 rounded-lg shadow-lg w-full max-w-7xl mx-auto">
               <h2 className="text-2xl font-bold text-green-800 mb-4 text-center">
                 {t("moreInformation")}
               </h2>
-              <div className="text-gray-700">
+              <div className="text-gray-700 overflow-x-auto">
                 <SyntaxHighlighter language="markdown" style={solarizedlight}>
                   {infoData}
                 </SyntaxHighlighter>
