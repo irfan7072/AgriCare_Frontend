@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { predictCrop, getCropInfo } from '../utills/api';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'; 
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { materialLight } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import Sidebar from './Sidebar';
 import { useTranslation } from 'react-i18next';
@@ -19,7 +19,7 @@ const CropPrediction = () => {
   const [predictedCrop, setPredictedCrop] = useState('');
   const [cropInfo, setCropInfo] = useState('');
   const [showMoreInfo, setShowMoreInfo] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const navigate = useNavigate();
   const location = useLocation();
   const { t } = useTranslation();
@@ -54,24 +54,17 @@ const CropPrediction = () => {
       setPredictedCrop(predicted_crop);
       localStorage.setItem('predictedCrop', predicted_crop);
       setShowMoreInfo(true);
+
+      // Fetch crop info immediately after prediction
+      const cropData = await getCropInfo(predicted_crop);
+      if (cropData && cropData.crop_info) {
+        setCropInfo(cropData.crop_info);
+      }
     } catch (error) {
       console.error('Error predicting crop:', error);
     }
   };
 
-  const handleGetMoreInfo = async () => {
-    const storedCrop = localStorage.getItem('predictedCrop');
-    try {
-      const data = await getCropInfo(storedCrop);
-      const { crop_info } = data;
-      setCropInfo(crop_info);
-      setIsModalOpen(true);
-    } catch (error) {
-      console.error('Error fetching crop info:', error);
-    }
-  };
-
-  const closeModal = () => setIsModalOpen(false);
   const handleSignOut = () => alert("Sign out logic goes here!");
 
   // Field labels mapping
@@ -122,38 +115,30 @@ const CropPrediction = () => {
             </button>
           </div>
 
+          {/* Show prediction result */}
           {showMoreInfo && (
-            <div className="mt-6 text-center">
-              <p className="text-lg font-semibold text-gray-700">
-                {t("predictedCrop")}: <span className="text-green-600">{predictedCrop}</span>
+            <div className="mt-6 bg-white p-6 rounded-lg shadow-md max-w-3xl w-full">
+              <h2 className="text-2xl font-bold text-green-800 mb-4 text-center">
+                {t("predictionResult")}
+              </h2>
+              <p className="text-lg font-semibold text-gray-700 mb-4 text-center">
+                {t("predictedCrop")}:{" "}
+                <span className="text-green-600">{predictedCrop}</span>
               </p>
-              <button
-                onClick={handleGetMoreInfo}
-                className="mt-4 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
-              >
-                {t("getMoreInfo")}
-              </button>
-            </div>
-          )}
 
-          {isModalOpen && (
-            <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-              <div className="bg-white p-6 rounded-lg shadow-lg overflow-y-auto max-w-lg w-full max-h-full md:max-h-[80vh] md:max-w-xl">
-                <h2 className="text-2xl font-semibold text-gray-800 mb-4">
-                  {t("cropInformation")}
-                </h2>
-                <div className="overflow-y-auto max-h-60 md:max-h-96">
-                  <SyntaxHighlighter language="markdown" style={materialLight}>
-                    {cropInfo}
-                  </SyntaxHighlighter>
+              {/* Show crop information below */}
+              {cropInfo && (
+                <div className="mt-6 bg-white bg-opacity-90 p-6 rounded-lg shadow-lg w-full">
+                  <h2 className="text-2xl font-bold text-green-800 mb-4 text-center">
+                    {t("cropInformation")}
+                  </h2>
+                  <div className="text-gray-700">
+                    <SyntaxHighlighter language="markdown" style={materialLight}>
+                      {cropInfo}
+                    </SyntaxHighlighter>
+                  </div>
                 </div>
-                <button
-                  onClick={closeModal}
-                  className="mt-6 bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
-                >
-                  {t("close")}
-                </button>
-              </div>
+              )}
             </div>
           )}
         </div>
