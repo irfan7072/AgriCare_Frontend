@@ -166,7 +166,7 @@ const resources = {
       
       // Home Page
       "heroTitle": "एग्रीकेयर",
-      "heroSubtitle": "किसानों का दोस्त",
+      "heroSubtitle": "किसानों को स्मार्ट फसल सुझाव और पत्ती रोग अंतर्दृष्टि के साथ बेहतर फसल प्राप्त करने में सशक्त बनाना"",
       "featuresTitle": "हमारी विशेषताएं",
       "cropPredictionTitle": "फसल पूर्वानुमान",
       "cropPredictionDesc": "मिट्टी के डेटा और मौसम की स्थिति के आधार पर सटीक फसल पूर्वानुमान प्राप्त करें।",
@@ -217,7 +217,7 @@ const resources = {
       "potassium": "पोटैशियम",
       "temperature": "तापमान",
       "humidity": "नमी",
-      "ph": "pH",
+      "ph": "पीएच",
       "rainfall": "वर्षा",
       "predictCrop": "फसल का पूर्वानुमान करें",
       "predictedCrop": "पूर्वानुमानित फसल",
@@ -309,7 +309,7 @@ const resources = {
       
       // Home Page
       "heroTitle": "அக்ரிகேர்",
-      "heroSubtitle": "விவசாயிகளின் நண்பர்",
+      "heroSubtitle": "விவசாயிகளை நுண்ணறிவுடன் பயிர் பரிந்துரைகள் மற்றும் இலை நோய் அறிக்கைகளுடன் திறம்பட வளமான அறுவடை பெற உதவுதல்",
       "featuresTitle": "எங்கள் அம்சங்கள்",
       "cropPredictionTitle": "பயிர் முன்னறிவிப்பு",
       "cropPredictionDesc": "மண் தரவு மற்றும் வானிலை நிலைமைகளின் அடிப்படையில் துல்லியமான பயிர் முன்னறிவிப்புகளைப் பெறுங்கள்.",
@@ -360,7 +360,7 @@ const resources = {
       "potassium": "பொட்டாசியம்",
       "temperature": "வெப்பநிலை",
       "humidity": "ஈரப்பதம்",
-      "ph": "pH",
+      "ph": "பிஹெச்",
       "rainfall": "மழைப்பொழிவு",
       "predictCrop": "பயிரை முன்னறிவிக்கவும்",
       "predictedCrop": "முன்னறிவிக்கப்பட்ட பயிர்",
@@ -452,7 +452,7 @@ const resources = {
       
       // Home Page
       "heroTitle": "అగ్రికేర్",
-      "heroSubtitle": "రైతుల స్నేహితుడు",
+      "heroSubtitle": "రైతులను స్మార్ట్ పంట సూచనలు మరియు ఆకుపచ్చ రోగ సమాచారం ద్వారా మెరుగైన పంటల కోసం శక్తివంతం చేయడం",
       "featuresTitle": "మా లక్షణాలు",
       "cropPredictionTitle": "పంట అంచనా",
       "cropPredictionDesc": "నేల డేటా మరియు వాతావరణ పరిస్థితుల ఆధారంగా ఖచ్చితమైన పంట అంచనాలను పొందండి.",
@@ -503,7 +503,7 @@ const resources = {
       "potassium": "పొటాషియం",
       "temperature": "ఉష్ణోగ్రత",
       "humidity": "తేమ",
-      "ph": "pH",
+      "ph": "పిహెచ్",
       "rainfall": "వర్షపాతం",
       "predictCrop": "పంటను అంచనా వేయండి",
       "predictedCrop": "అంచనా వేసిన పంట",
