@@ -42,16 +42,16 @@ const Home = () => {
           />
           <div className="absolute inset-0 bg-black bg-opacity-40"></div>
           <div className="relative z-10 flex flex-col justify-center items-center h-full px-10 text-center">
-            <h1 className="text-6xl font-extrabold text-white mb-4 leading-tight">
-              AgriCare
-            </h1>
-            <p className="text-xl italic text-gray-200 max-w-2xl">
-              Empowering farmers with smart crop suggestions and leaf disease insights for better harvests.
+            <h2 className="text-5xl font-extrabold text-white mb-6 leading-tight">
+              {t("heroTitle")}
+            </h2>
+            <p className="text-xl italic text-gray-200">
+              "{t("heroSubtitle")}"
             </p>
           </div>
         </section>
-        <br />
-        <br />
+        <br></br>
+        <br></br>
         {/* Features Section */}
         <section id="features" className="py-20 bg-white">
           <h2 className="text-center text-4xl font-bold text-green-700 mb-14">
@@ -70,7 +70,9 @@ const Home = () => {
               <h3 className="text-2xl font-bold text-green-700 mb-2">
                 {t("cropPredictionTitle")}
               </h3>
-              <p className="text-gray-600">{t("cropPredictionDesc")}</p>
+              <p className="text-gray-600">
+                {t("cropPredictionDesc")}
+              </p>
             </div>
 
             <div
@@ -85,16 +87,18 @@ const Home = () => {
               <h3 className="text-2xl font-bold text-green-700 mb-2">
                 {t("diseaseDiagnosisTitle")}
               </h3>
-              <p className="text-gray-600">{t("diseaseDiagnosisDesc")}</p>
+              <p className="text-gray-600">
+                {t("diseaseDiagnosisDesc")}
+              </p>
             </div>
           </div>
         </section>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
 
         {/* About Section */}
         <section
@@ -102,12 +106,16 @@ const Home = () => {
           className="py-20 bg-gray-100 flex flex-col md:flex-row items-center gap-12 px-10"
         >
           <div className="flex-1">
-            <h2 className="text-4xl font-bold text-green-700 mb-6">
-              {t("missionTitle")}
-            </h2>
-            <p className="text-gray-600 mb-4">{t("missionText1")}</p>
-            <p className="text-gray-600 mb-4">{t("missionText2")}</p>
-            <p className="text-gray-600">{t("missionText3")}</p>
+            <h2 className="text-4xl font-bold text-green-700 mb-6">{t("missionTitle")}</h2>
+            <p className="text-gray-600 mb-4">
+              {t("missionText1")}
+            </p>
+            <p className="text-gray-600 mb-4">
+              {t("missionText2")}
+            </p>
+            <p className="text-gray-600">
+              {t("missionText3")}
+            </p>
           </div>
           <div className="flex-1 flex justify-center">
             <img
