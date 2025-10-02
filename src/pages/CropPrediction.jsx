@@ -24,10 +24,9 @@ const CropPrediction = () => {
   const location = useLocation();
   const { t } = useTranslation();
 
-  // Removed auth check, bypass login
   useEffect(() => {
     const pendingFormData = localStorage.getItem("pendingFormData");
-    if (pendingFormData) {
+    if (pendingFormData && localStorage.getItem("authToken")) {
       const parsedData = JSON.parse(pendingFormData);
       setFormData(parsedData);
       localStorage.removeItem("pendingFormData");
@@ -42,6 +41,12 @@ const CropPrediction = () => {
 
   const handlePredictCrop = async (dataOverride = null) => {
     const inputData = dataOverride || formData;
+    const token = localStorage.getItem("authToken");
+    if (!token) {
+      localStorage.setItem("pendingFormData", JSON.stringify(inputData));
+      navigate("/login", { state: { from: location } });
+      return;
+    }
 
     try {
       const data = await predictCrop(inputData);
