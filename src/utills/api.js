@@ -125,7 +125,6 @@ export const getCropInfo = async (cropName) => {
 // -------------------- Disease Prediction APIs --------------------
 
 // Predict disease (with file upload)
-// ✅ Updated route to match Postman working URL
 export const predictDisease = async (formData) => {
   try {
     const response = await axios.post(
@@ -147,7 +146,7 @@ export const predictDisease = async (formData) => {
 // Get disease info
 export const getPredictionInfo = async (predictionData) => {
   try {
-    const response = await fetch(`${BASE_URL}/prediction-disease/get_info_ds/`, {
+    const response = await fetch(`${BASE_URL}/prediction-diseasae/get_info_ds/`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(predictionData),
